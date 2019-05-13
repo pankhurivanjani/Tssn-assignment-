@@ -37,24 +37,7 @@ def sss(switch, blocking, inlet, occp, beta,alpha):
     return complexity
 
 def ts(switch, blocking, inlet, occp, beta,alpha):
-    #    ρ = fraction of time that a particular link is busy measured in Erlangs
-#    T = number of time slots in a frame  
-#    N = Number of inlets (or outlets) for N × N space array
-#    B = P/(N*T^3)
-#    The TS switch can be made non-blocking by using an expanding time switch (T to T 2
-#slots) and a concentrating space switch (which is complex)
-##In general the complexity of the switching is represented
-##interms of number of cross points (N) and its associated cost. The number of cross points in
-##space stage can be easily calculated which is based on the array size. The time stage uses
-##significant amount of memory which adds the cost of the whole system. To take this into
-##account the cost of memory bit is assumed one hundredth of the cost of cross point.
-#    Implementation complexity = Nx + Nb/100
-#    Nx = Number of space stage cross points
-#    Nb = Number of bits of memory
-#    Nbx = Number of memory bits for the space stage control store = N × (Number of control words) (number of bits per control word)
-#    Nbt = Number of memory bits in the time stage equal to sum of time slot interchange and the control store bits = N × number of channels × number of bits per channel + N × number of control
-#words × number of bits per control world
-#    Nb = Nbx + Nbt
+
     p = occp;
     N = inlet;
     Nx = N*N; #    Nx = Number of space stage cross points
@@ -95,24 +78,7 @@ def ts(switch, blocking, inlet, occp, beta,alpha):
     return complexity
 
 def sts(switch, blocking, inlet, occp, beta,alpha):
-    #    ρ = fraction of time that a particular link is busy measured in Erlangs
-#    T = number of time slots in a frame  
-#    N = Number of inlets (or outlets) for N × N space array
-#    B = P/(N*T^3)
-#    The TS switch can be made non-blocking by using an expanding time switch (T to T 2
-#slots) and a concentrating space switch (which is complex)
-##In general the complexity of the switching is represented
-##interms of number of cross points (N) and its associated cost. The number of cross points in
-##space stage can be easily calculated which is based on the array size. The time stage uses
-##significant amount of memory which adds the cost of the whole system. To take this into
-##account the cost of memory bit is assumed one hundredth of the cost of cross point.
-#    Implementation complexity = Nx + Nb/100
-#    Nx = Number of space stage cross points
-#    Nb = Number of bits of memory
-#    Nbx = Number of memory bits for the space stage control store = N × (Number of control words) (number of bits per control word)
-#    Nbt = Number of memory bits in the time stage equal to sum of time slot interchange and the control store bits = N × number of channels × number of bits per channel + N × number of control
-#words × number of bits per control world
-#    Nb = Nbx + Nbt
+
     p = occp;
     N = inlet;
     K = 7;    
@@ -179,24 +145,7 @@ def sts(switch, blocking, inlet, occp, beta,alpha):
     return complexity
 
 def tst(switch, blocking, inlet, occp, beta,alpha):
-    #    ρ = fraction of time that a particular link is busy measured in Erlangs
-#    T = number of time slots in a frame  
-#    N = Number of inlets (or outlets) for N × N space array
-#    B = P/(N*T^3)
-#    The TS switch can be made non-blocking by using an expanding time switch (T to T 2
-#slots) and a concentrating space switch (which is complex)
-##In general the complexity of the switching is represented
-##interms of number of cross points (N) and its associated cost. The number of cross points in
-##space stage can be easily calculated which is based on the array size. The time stage uses
-##significant amount of memory which adds the cost of the whole system. To take this into
-##account the cost of memory bit is assumed one hundredth of the cost of cross point.
-#    Implementation complexity = Nx + Nb/100
-#    Nx = Number of space stage cross points
-#    Nb = Number of bits of memory
-#    Nbx = Number of memory bits for the space stage control store = N × (Number of control words) (number of bits per control word)
-#    Nbt = Number of memory bits in the time stage equal to sum of time slot interchange and the control store bits = N × number of channels × number of bits per channel + N × number of control
-#words × number of bits per control world
-#    Nb = Nbx + Nbt
+
     p = occp;
     N = inlet;
     K = 7;    
@@ -291,22 +240,7 @@ def main():
         tst(switch, blocking, inlet, occp, beta, alpha)
     if (switch == 4):
         sss(switch, blocking, inlet, occp, beta, alpha)
-    
-#    #Lee's graph 
-#    uses B = p^n
-#    For a probability graph of three stage network, shown in Fig. 5.12, the probability of
-#blocking is given by B = (1 – q^2)^k
-#    
-#    #Jacobian approach is not much accurate
-#    The Lee’s graph approach is not much accurate. Because the probability
-#graphs entail several simplifying assumptions. The important one which gives erroneous values
-#of blocking is the assumption that the individual probabilities are independent. In fact the
-#probabilities not independent and highly dependent when significant amounts of expansion
-#are not present. According to C. Jacobaeus the blocking probability of a three stage switch is
-#    B = (n!)^2/(k!*(2n-k)!) *  p^k * (2-p)^2n-k
-#    n = number of inlets (outlets) per first (third) stage array
-#    k = number of second stage array
-#    p = inlet utilization.
+
    
 # call main 
 if __name__ == '__main__': 
